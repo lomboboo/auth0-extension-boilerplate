@@ -5,6 +5,12 @@ var api        = express.Router();
 var jwtExpress = require('express-jwt');
 var auth0      = require('auth0-oauth2-express');
 var metadata   = require('./webtask.json');
+const logger = require('./server/lib/logger');
+
+// Handle uncaught.
+process.on('uncaughtException', (err) => {
+  logger.error(err);
+});
 
 app.use(require('./middleware/develop.js'));
 
