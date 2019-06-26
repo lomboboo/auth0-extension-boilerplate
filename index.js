@@ -9,6 +9,7 @@ const logger = require('./server/lib/logger');
 
 // Handle uncaught.
 process.on('uncaughtException', (err) => {
+  console.log(err)
   logger.error(err);
 });
 
